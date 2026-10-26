@@ -167,6 +167,14 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nightly-build
+          if-no-files-found: error
+          path: |
+            dist/HyperHEN.elf
+            dist/SHA256SUMS
+
       - name: Publish rolling nightly-build release
         uses: ncipollo/release-action@v1
         with:
